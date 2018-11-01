@@ -53,7 +53,7 @@ public class Player extends game
 	 */
 	
 	public String setName(Player parameter) {
-		
+
 		//this.Name =
 		return "";
 	}
