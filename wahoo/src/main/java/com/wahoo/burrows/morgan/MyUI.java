@@ -26,21 +26,41 @@ public class MyUI extends UI {
     protected void init(VaadinRequest vaadinRequest) {
         final VerticalLayout layout = new VerticalLayout();
         
-        final TextField name = new TextField();
-        name.setCaption("Type your name here:");
-
-        Button button = new Button("Click Me");
-        button.addClickListener(e -> {
-            layout.addComponent(new Label("Thanks " + name.getValue() 
-                    + ", it works!"));
-        });
+//        final TextField name = new TextField();
+//        name.setCaption("Type your name here:");
+//
+//        Button button = new Button("Click Me");
+//        button.addClickListener(e -> {
+//            layout.addComponent(new Label("Thanks " + name.getValue()
+//                    + ", it works!"));
+//        });
 
         Button startGame = new Button("New Game");
+        startGame.addClickListener(e -> {
+            layout.addComponent(new Label("Goes to New Game page!"));
+        });
+
+        Button howToPlay = new Button("How To Play");
+        howToPlay.addClickListener(e -> {
+            layout.addComponent(new Label("Goes to HTP page"));
+        });
+
+        Button about = new Button("About");
+        about.addClickListener(e -> {
+            layout.addComponent(new Label("Goes to About page"));
+        });
+
+        Button quit = new Button("Quit");
+        quit.addClickListener(e -> {
+            layout.addComponent(new Label("quits game"));
+        });
 
         layout.addComponent(new Label("Welcome to wahOO!"));
-        
-        layout.addComponents(name, button);
+
         layout.addComponent(startGame);
+        layout.addComponents(howToPlay);
+        layout.addComponents(about);
+        layout.addComponent(quit);
         
         setContent(layout);
     }
