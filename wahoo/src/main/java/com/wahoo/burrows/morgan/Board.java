@@ -1,6 +1,8 @@
 package com.wahoo.burrows.morgan;
 
 
+import sun.jvm.hotspot.gc.shared.Space;
+
 import java.lang.reflect.Array;
 
 /**
@@ -19,6 +21,8 @@ public class Board
 	 */
 	
 	public Array board;
+
+
 
 	/**
 	 * <!-- begin-user-doc -->
