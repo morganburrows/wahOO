@@ -34,8 +34,13 @@ public class MyUI extends UI {
             layout.addComponent(new Label("Thanks " + name.getValue() 
                     + ", it works!"));
         });
+
+        Button startGame = new Button("New Game");
+
+        layout.addComponent(new Label("Welcome to wahOO!"));
         
         layout.addComponents(name, button);
+        layout.addComponent(startGame);
         
         setContent(layout);
     }
