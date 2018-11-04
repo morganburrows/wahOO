@@ -62,17 +62,10 @@ public class marble extends Player
 
 	public int Color;
 	
-	public void setColor(marble parameter) {
-		//this.Color = user input
+	public void setColor(int color) {
+		this.Color = color;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	public int getColor(marble parameter) {
 		return(this.Color);
 	}

@@ -20,7 +20,7 @@ public class Player extends game
 		this.Name = name;
 	}
 
-	public String getName(Player Player) {
+	public String getName() {
 		return(Player.Name);
 	}
 
