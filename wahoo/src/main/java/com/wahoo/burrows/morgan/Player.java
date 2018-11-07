@@ -20,9 +20,9 @@ public class Player extends game
 		this.Name = name;
 	}
 
-//	public String getName() {
-//		return(Player.Name);
-//	}
+	public String getName(Player player) {
+		return(player.Name);
+	}
 
 	public int rollDice(){
 		dice dice = new dice();
