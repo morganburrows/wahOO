@@ -19,6 +19,12 @@ public  class GameView extends VerticalLayout
         Button button = new Button("Submit");
         button.addClickListener(event -> player.setName(nameInput.getValue()));
         button.addClickListener(event ->  add(new Label("Thanks " + player.getName(player) + "!" )));
+
+        button.addClickListener(event -> remove(nameInput));
+
+
+
+
         add(nameInput);
         add(button);
 
