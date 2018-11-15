@@ -9,24 +9,36 @@ import com.vaadin.flow.router.Route;
 @Route("game")
 public  class GameView extends VerticalLayout
 {
+    static String state = "name";
     public GameView() {
 
         Player player = new Player();
+        DisplayContext context = new DisplayContext();
+        NameState namest = new NameState();
+        PlayerState playerst = new PlayerState();
+
+        context.setDstate(namest);
 
         final TextField nameInput = new TextField();
+        Button namebutton = new Button("Submit");
+        Button nextButton = new Button("Next");
+
+
         nameInput.setLabel("Type Your Name Here!");
 
-        Button button = new Button("Submit");
-        button.addClickListener(event -> player.setName(nameInput.getValue()));
-        button.addClickListener(event ->  add(new Label("Thanks " + player.getName(player) + "!" )));
+        namebutton.addClickListener(event -> player.setName(nameInput.getValue()));
+        namebutton.addClickListener(event ->  nameInput.setLabel("Thanks " + player.getName(player) + "!" ));
+        namebutton.addClickListener(event -> add(nextButton));
 
-        button.addClickListener(event -> remove(nameInput));
+        nextButton.addClickListener(event -> state = "players");
 
+        if(state == "name"){
+            add(nameInput, namebutton);
+        }
+        else if(state == "players"){
+            remove(nameInput, namebutton);
+        }
 
-
-
-        add(nameInput);
-        add(button);
 
 
     }
@@ -35,4 +47,3 @@ public  class GameView extends VerticalLayout
 
 
 }
-

@@ -11,31 +11,14 @@ package com.wahoo.burrows.morgan;
 
 public class game
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+
 	public game Game;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
 	public game(){
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+
 	public void startGame() {
 		// TODO implement me
 
@@ -44,7 +27,6 @@ public class game
 	/**
 	 * <!-- begin-user-doc -->
 	 *     	 create instance of game
-	 * 		 prompt user for name
 	 * 		 prompt user for num players
 	 * 		 get players' color choices
 	 * 		 initialize singleton of board
@@ -60,26 +42,12 @@ public class game
 		// TODO implement me
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+
 	public void pauseGame(game parameter) {
 		// TODO implement me
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 *     halt current player's turn
-	 *     show options menu
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+
 	public void restartGame(game parameter) {
 		// TODO implement me
 	}

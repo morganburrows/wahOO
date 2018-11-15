@@ -1,7 +1,7 @@
 package com.wahoo.burrows.morgan;
 
 
-import sun.jvm.hotspot.gc.shared.Space;
+//import sun.jvm.hotspot.gc.shared.Space;
 
 import java.lang.reflect.Array;
 
