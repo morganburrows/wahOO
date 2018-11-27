@@ -10,12 +10,18 @@ package com.wahoo.burrows.morgan;
 	public int marblesInGoal;
 	public int marblesInStart;
 
+	start startPool = new start();
+	Goal goalPool = new Goal();
+
 
 	public Player(){
 		super();
 	}
 
+	public int getMarblesInGoal(){
 
+		return 0;
+	}
 	
 	public void setName(String name) {
 		this.Name = name;

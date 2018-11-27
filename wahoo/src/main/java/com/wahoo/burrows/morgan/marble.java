@@ -15,40 +15,16 @@ package com.wahoo.burrows.morgan;
 
 public class marble extends Player
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 
-	public space Space;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public int ID;
+	public space space;
+	public int marbleID;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 *     each marble should have a unique ID.
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+
 	public marble(){
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 
 	public int Color;
 	

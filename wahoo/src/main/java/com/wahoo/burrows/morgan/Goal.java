@@ -1,33 +1,25 @@
 package com.wahoo.burrows.morgan;
 
-
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
-
-public class Goal
+public class Goal implements pool
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+	public space[] goalArray;
+	Player owner;
+
+	@Override
+	public void setNumOccupants(){
+
+	}
+
+	@Override
+	public int getNumOccupants(){
+		return 0;
+	}
+
 	public Goal(){
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void checkFull(pool parameter) {
-		// TODO implement me
-	}
+
 
 }
 

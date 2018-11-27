@@ -1,33 +1,28 @@
 package com.wahoo.burrows.morgan;
 
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
-
-public class start
+public class start implements pool
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+	public space[] startArray;
+	Player owner;
+
+	@Override
+	public void setNumOccupants(){
+
+		for(int i = 0; i < 4; i++){
+			startArray[i] = new space(i*10);
+		}
+	}
+
+	@Override
+	public int getNumOccupants(){
+		return startArray.length;
+	}
+
 	public start(){
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void populate(pool parameter) {
-		// TODO implement me
-	}
 
 }
 

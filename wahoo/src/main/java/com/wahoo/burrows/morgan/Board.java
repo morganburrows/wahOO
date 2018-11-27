@@ -18,7 +18,9 @@ public class Board
 	}
 
 	public void moveMarble(space currentSpace, int distance) {
-		currentSpace.getOccupant()
+
+		boardArray[currentSpace.place + distance].occupant = currentSpace.getOccupant();
+		currentSpace.occupant = null;
 	}
 
 }

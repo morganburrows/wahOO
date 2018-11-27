@@ -4,6 +4,7 @@ package com.wahoo.burrows.morgan;
 public class space extends game
 {
 	public int place;
+	public marble occupant;
 
 	public space(int ID){
 		super();
@@ -12,16 +13,12 @@ public class space extends game
 
 
 	
-	public marble getOccupant(space parameter) {
-		// TODO implement me
-		return null;
+	public marble getOccupant() {
+		return(this.occupant);
 	}
 
-
-	
-	public marble setOccupant(space parameter) {
-		// TODO implement me
-		return null;
+	public void setOccupant(space parameter, marble newOccupant) {
+		this.occupant = newOccupant;
 	}
 
 }
