@@ -5,41 +5,24 @@ package com.wahoo.burrows.morgan;
 
 import java.lang.reflect.Array;
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
 
 public class Board
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+
 	
-	public Array board;
+	space[] boardArray;
 
+	public void makeBoard(){
 
+		for(int i = 0; i < 47; i++ ){
+			boardArray[i] = new space(i);
+		}
+	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
 	public Board(){
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	public void moveMarble(space parameter, int parameter2) {
 		// TODO implement me
 	}

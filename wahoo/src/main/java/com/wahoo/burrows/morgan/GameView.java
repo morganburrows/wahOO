@@ -11,71 +11,35 @@ import com.vaadin.flow.component.combobox.ComboBox;
 @Route("game")
 public  class GameView extends VerticalLayout
 {
-    public void makePlayer(){
-
+    public void setupPlayer(){
         Player player = new Player();
-        //player.playerID = idNumber;
 
         FormLayout playerLayout = new FormLayout();
 
-        Checkbox playerCheckbox = new Checkbox();
-        playerCheckbox.setLabel("Player " + player.playerID);
-
         TextField playerNameField = new TextField();
         playerNameField.setPlaceholder("Name");
+        playerNameField.addValueChangeListener(event -> player.setName(event.getValue()));
 
         ComboBox<String> colorBox = new ComboBox<>("Color");
         colorBox.setItems("blue", "red", "greed", "yellow");
 
-        playerLayout.add(playerCheckbox, playerNameField, colorBox);
+        playerLayout.add(playerNameField, colorBox);
 
         add(playerLayout);
 
+    }
+
+    public void setupBoard(){
+
+        FormLayout horizontalTrack = new FormLayout();
+        FormLayout verticalTrack = new FormLayout();
 
 
     }
 
     public GameView() {
 
-        int i = 1;
-
-        Button makePlayerButton = new Button("add Player");
-        makePlayerButton.addClickListener(event -> makePlayer());
-
-        add(makePlayerButton);
-        makePlayer();
-
-
-        i++;
-
-
-
-
-
-
-
-
-
-
-//        final TextField nameInput = new TextField();
-//        Button namebutton = new Button("Submit");
-//        Button nextButton = new Button("Next");
-//
-//
-//        nameInput.setLabel("Type Your Name Here!");
-//
-//        namebutton.addClickListener(event -> Player.setName(nameInput.getValue()));
-//        namebutton.addClickListener(event -> nameInput.setLabel("Thanks " + Player.Name + "!" ));
-//        namebutton.addClickListener(event -> add(nextButton));
-//
-//        add(nameInput,namebutton);
-//
-//        ComboBox<String> colorBox = new ComboBox<>("Pick your color, " + Player.Name);
-//        colorBox.setItems("Blue", "Red", "Green");
-//
-//        //nextButton.addClickListener(event -> remove(nameInput,namebutton,nextButton));
-//        nextButton.addClickListener(event -> add(colorBox));
-
+        //setupPlayer();
 
 
     }
