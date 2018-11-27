@@ -21,17 +21,7 @@ public class marble extends Player
 	 * @generated
 	 * @ordered
 	 */
-	
-	public Players Team;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 *     four marbles make up a team and will share the same player.color attribute
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	public space Space;
 
 	/**

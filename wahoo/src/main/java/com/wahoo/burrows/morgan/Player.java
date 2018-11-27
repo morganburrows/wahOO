@@ -1,11 +1,12 @@
 package com.wahoo.burrows.morgan;
 
 
-public class Player extends game
+ public class Player extends game
 {
 
 	
 	public String Name;
+	public int playerID;
 	public int marblesInGoal;
 	public int marblesInStart;
 
@@ -20,8 +21,8 @@ public class Player extends game
 		this.Name = name;
 	}
 
-	public String getName(Player player) {
-		return(player.Name);
+	public String getName() {
+		return(this.Name);
 	}
 
 	public int rollDice(){
