@@ -1,16 +1,10 @@
 package com.wahoo.burrows.morgan;
 
 
-//import sun.jvm.hotspot.gc.shared.Space;
-
-import java.lang.reflect.Array;
-
-
 public class Board
 {
 
-	
-	space[] boardArray;
+	public space[] boardArray;
 
 	public void makeBoard(){
 
@@ -23,8 +17,8 @@ public class Board
 		super();
 	}
 
-	public void moveMarble(space parameter, int parameter2) {
-		// TODO implement me
+	public void moveMarble(space currentSpace, int distance) {
+		currentSpace.getOccupant()
 	}
 
 }
