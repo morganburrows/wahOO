@@ -1,5 +1,13 @@
 package com.wahoo.burrows.morgan;
 
+/**
+ * <!-- begin-user-doc -->
+ *     Player class. handles player objects like marbles, player properties, and player abilities.
+ * <!--  end-user-doc  -->
+ * @generated
+ */
+
+
 
  public class Player extends game
 {
@@ -10,12 +18,16 @@ package com.wahoo.burrows.morgan;
 	public int marblesInGoal;
 	public int marblesInStart;
 
-	start startPool = new start();
-	Goal goalPool = new Goal();
 
-
-	public Player(){
+	public Player(int playerID){
 		super();
+
+	}
+
+	public void makePools(Player player){
+		start startPool = new start(player);
+		startPool.populate(this.playerID);
+		Goal goalPool = new Goal();
 	}
 
 	public int getMarblesInGoal(){

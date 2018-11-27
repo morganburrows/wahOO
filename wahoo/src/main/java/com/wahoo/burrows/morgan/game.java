@@ -14,13 +14,31 @@ public class game
 
 	public game Game;
 
+	public void setupPlayers(){
+
+		Player player1 = new Player(1);
+		Player player2 = new Player(2);
+		Player player3 = new Player(3);
+		Player player4 = new Player(4);
+
+		player1.setName("Me");
+		player1.makePools(player1);
+		player2.setName("robot Tom");
+		player3.setName("robot Dick");
+		player4.setName("robot Harry");
+
+	}
+
+
+
 	public game(){
 		super();
 	}
 
 
 	public void startGame() {
-		// TODO implement me
+
+		setupPlayers();
 
 	}
 

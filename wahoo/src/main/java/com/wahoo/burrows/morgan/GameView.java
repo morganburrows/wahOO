@@ -11,23 +11,7 @@ import com.vaadin.flow.component.combobox.ComboBox;
 @Route("game")
 public  class GameView extends VerticalLayout
 {
-    public void setupPlayer(){
-        Player player = new Player();
 
-        FormLayout playerLayout = new FormLayout();
-
-        TextField playerNameField = new TextField();
-        playerNameField.setPlaceholder("Name");
-        playerNameField.addValueChangeListener(event -> player.setName(event.getValue()));
-
-        ComboBox<String> colorBox = new ComboBox<>("Color");
-        colorBox.setItems("blue", "red", "greed", "yellow");
-
-        playerLayout.add(playerNameField, colorBox);
-
-        add(playerLayout);
-
-    }
 
     public void setupBoard(){
 
@@ -39,7 +23,10 @@ public  class GameView extends VerticalLayout
 
     public GameView() {
 
-        //setupPlayer();
+        game game = new game();
+
+        game.startGame();
+
 
 
     }

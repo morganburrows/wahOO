@@ -1,16 +1,16 @@
 package com.wahoo.burrows.morgan;
 
-public class Goal implements pool
+public class Goal
 {
 	public space[] goalArray;
 	Player owner;
 
-	@Override
-	public void setNumOccupants(){
+
+	public void addOccupant(){
 
 	}
 
-	@Override
+
 	public int getNumOccupants(){
 		return 0;
 	}
