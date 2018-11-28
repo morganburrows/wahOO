@@ -18,6 +18,11 @@ public class game
 {
 
 	public game Game;
+	PlayerContext context = new PlayerContext();
+	PlayerState AllMarblesInStart = new AllMarblesInStartState();
+	PlayerState MarblesOnBoard = new MarblesOnBoardState();
+	PlayerState NoMarblesInStart = new NoMarblesInStartState();
+	PlayerState AllMarblesInGoal = new AllMarblesInGoalState();
 	public Set<Player> playerSet = new HashSet<>();
 
 	public void setupPlayers(){
@@ -43,10 +48,16 @@ public class game
 
 	}
 
-	public void takeTurn(Player player){
+	public void setPlayerTurnLogic(Player player){
 
 		if(player.spool.getNumOccupants() == 4){
-
+			context.setState(AllMarblesInStart);
+		} else if(player.spool.getNumOccupants() < 4){
+			context.setState(MarblesOnBoard);
+		} else if(player.spool.getNumOccupants() == 0 && player.gpool.getNumOccupants() < 4){
+			context.setState(NoMarblesInStart);
+		} else if(player.gpool.getNumOccupants() == 4){
+			context.setState(AllMarblesInGoal);
 		}
 	}
 
