@@ -16,7 +16,7 @@ public class space extends game
 		return(this.occupant);
 	}
 
-	public void setOccupant(space parameter, marble newOccupant) {
+	public void setOccupant(marble newOccupant) {
 		this.occupant = newOccupant;
 	}
 

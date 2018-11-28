@@ -11,9 +11,8 @@ public class Board
 	public space[] boardArray;
 
 	//function to create the board array.
-	//to facilitate the placement of player-specific starting points, begins at 1.
 	private void makeBoard(){
-		for(int i = 1; i <= 48; i++ ){
+		for(int i = 0; i <= 47; i++ ){
 			boardArray[i] = new space(i);
 		}
 //		for(Player player : ){
@@ -29,7 +28,8 @@ public class Board
 		makeBoard();
 	}
 
-	public Board getBoardInstance(){
+	//access the game board.
+	public static Board getBoardInstance(){
 		return instance;
 	}
 

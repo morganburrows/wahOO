@@ -7,7 +7,9 @@ import java.util.Set;
 /**
  * <!-- begin-user-doc -->
  *     main driving logic for game.
- *     handles initialization of games, turns, and win conditions
+ *     handles initialization of games,
+ *     initialization of players,
+ *     turn logic, and win conditions
  * <!--  end-user-doc  -->
  * @generated
  */
@@ -20,10 +22,10 @@ public class game
 
 	public void setupPlayers(){
 
-		Player player1 = new Player(1);
-		Player player2 = new Player(2);
-		Player player3 = new Player(3);
-		Player player4 = new Player(4);
+		Player player1 = new Player(0);
+		Player player2 = new Player(1);
+		Player player3 = new Player(2);
+		Player player4 = new Player(3);
 
 		player1.setName("Me");
 		player2.setName("robot Tom");
@@ -35,6 +37,10 @@ public class game
 		playerSet.add(player3);
 		playerSet.add(player4);
 
+		for(Player player : playerSet){
+			player.setStartSpace(player.playerID*12);
+		}
+
 	}
 
 	public void takeTurn(Player player){
@@ -45,7 +51,7 @@ public class game
 
 			 if(roll == 1 || roll == 6){
 
-			 	//player.spool.
+
 
 			 }
 		}

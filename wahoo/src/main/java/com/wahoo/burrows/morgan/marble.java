@@ -19,6 +19,7 @@ public class marble
 	public space space;
 	public int marbleID;
 	public Player owner;
+	public boolean inPlay;
 
 
 	public marble(Player player){
