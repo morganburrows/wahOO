@@ -7,7 +7,6 @@ public class space extends game
 	public marble occupant;
 
 	public space(int ID){
-		super();
 		this.place = ID;
 	}
 

@@ -9,7 +9,6 @@ import com.vaadin.flow.router.Router;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.router.Route;
 
-import java.awt.*;
 
 /**
  * The main view contains a button and a click listener.

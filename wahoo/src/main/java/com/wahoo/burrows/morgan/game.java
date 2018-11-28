@@ -1,6 +1,9 @@
 package com.wahoo.burrows.morgan;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * <!-- begin-user-doc -->
  *     main driving logic for game.
@@ -13,6 +16,7 @@ public class game
 {
 
 	public game Game;
+	public Set<Player> playerSet = new HashSet<>();
 
 	public void setupPlayers(){
 
@@ -22,23 +26,41 @@ public class game
 		Player player4 = new Player(4);
 
 		player1.setName("Me");
-		player1.makePools(player1);
 		player2.setName("robot Tom");
 		player3.setName("robot Dick");
 		player4.setName("robot Harry");
 
+		playerSet.add(player1);
+		playerSet.add(player2);
+		playerSet.add(player3);
+		playerSet.add(player4);
+
+	}
+
+	public void takeTurn(Player player){
+
+		if(player.spool.getNumOccupants() == 4){
+
+			int roll = player.rollDice();
+
+			 if(roll == 1 || roll == 6){
+
+			 	//player.spool.
+
+			 }
+		}
 	}
 
 
 
 	public game(){
-		super();
+		setupPlayers();
 	}
 
 
 	public void startGame() {
 
-		setupPlayers();
+
 
 	}
 
