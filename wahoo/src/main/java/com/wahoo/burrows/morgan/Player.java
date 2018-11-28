@@ -72,6 +72,7 @@ import java.util.Set;
 			Board board = Board.getBoardInstance();
 			board.boardArray[player.getStartSpace()].setOccupant(marble);
 			marble.inPlay = true;
+
 		}
 	}
 

@@ -28,7 +28,7 @@ public class Goal
 	//each marble is unique and occupies a space in the set.
 	public void populatePool(int playerID){
 		for(space space : goalPool){
-			space.setOccupant(space, new marble(owner));
+			space.setOccupant(new marble(owner));
 		}
 	}
 

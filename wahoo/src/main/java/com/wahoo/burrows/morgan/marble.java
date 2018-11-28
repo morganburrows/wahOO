@@ -22,8 +22,9 @@ public class marble
 	public boolean inPlay;
 
 
-	public marble(Player player){
+	public marble(Player player, int ID){
 		this.setOwner(player);
+		this.setMarbleID(ID);
 	}
 
 
@@ -43,6 +44,14 @@ public class marble
 
 	public Player getOwner(){
 		return(this.owner);
+	}
+
+	public void setMarbleID(int ID){
+		this.marbleID = ID;
+	}
+
+	public int getMarbleID(){
+		return(this.marbleID);
 	}
 
 }

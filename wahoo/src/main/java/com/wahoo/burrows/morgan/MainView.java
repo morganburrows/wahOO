@@ -31,8 +31,6 @@ public class MainView extends VerticalLayout {
 
         add(newGameButton, howToPlayButton, aboutButton);
 
-
-
     }
 
 

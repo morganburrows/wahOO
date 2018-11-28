@@ -47,13 +47,6 @@ public class game
 
 		if(player.spool.getNumOccupants() == 4){
 
-			int roll = player.rollDice();
-
-			 if(roll == 1 || roll == 6){
-
-
-
-			 }
 		}
 	}
 
