@@ -67,14 +67,25 @@ import java.util.Set;
 
 	}
 
-	public void putInPlay(Player player, marble marble){
+	public boolean putInPlay(Player player, marble marble){
 		if(!marble.inPlay){
 			Board board = Board.getBoardInstance();
 			board.boardArray.get(player.getStartSpace()).setOccupant(marble);
 			player.ppool.addMarble(marble);
 			marble.inPlay = true;
-			marble.setSpace(board.boardArray.get(player.startSpace));
+			if(board.boardArray.get(player.startSpace).occupant != null){
+				if(board.boardArray.get(player.startSpace).occupant.owner == player){
+					return false;
+				}else {
+					marble.setSpace(board.boardArray.get(player.startSpace));
+					return true;
+				}
+			}else {
+				marble.setSpace(board.boardArray.get(player.startSpace));
+				return true;
+			}
 		}
+		return false;
 	}
 
 	//Function to advance a marble along the board.
@@ -84,7 +95,7 @@ import java.util.Set;
 		Board board = Board.getBoardInstance();
 		int newLocation = marble.getSpace().location + distance;
 		marble newSpaceOccupant = board.boardArray.get(newLocation).occupant;
-		
+
 		if(newSpaceOccupant!= null){
 			if(newSpaceOccupant.owner == marble.owner){
 				moveMarble(ppool.getBehind(ppool.playPool), distance);
