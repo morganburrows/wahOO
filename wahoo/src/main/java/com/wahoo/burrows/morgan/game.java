@@ -16,14 +16,16 @@ import java.util.Set;
 
 public class game
 {
+	boolean winConditionMet = false;
 
-	public game Game;
 	PlayerContext context = new PlayerContext();
 	PlayerState AllMarblesInStart = new AllMarblesInStartState();
 	PlayerState MarblesOnBoard = new MarblesOnBoardState();
 	PlayerState NoMarblesInStart = new NoMarblesInStartState();
 	PlayerState AllMarblesInGoal = new AllMarblesInGoalState();
 	public Set<Player> playerSet = new HashSet<>();
+
+
 
 	public void setupPlayers(){
 
@@ -69,8 +71,11 @@ public class game
 
 
 	public void startGame() {
-
-
+		while(!winConditionMet){
+			for(Player player : playerSet){
+				setPlayerTurnLogic(player);
+			}
+		}
 
 	}
 

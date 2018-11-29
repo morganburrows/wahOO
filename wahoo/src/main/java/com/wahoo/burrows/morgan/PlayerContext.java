@@ -13,7 +13,7 @@ public class PlayerContext implements PlayerState {
     }
 
     @Override
-    public void doAction(){
-        this.state.doAction();
+    public void takeTurn(Player player){
+        this.state.takeTurn(player);
     }
 }

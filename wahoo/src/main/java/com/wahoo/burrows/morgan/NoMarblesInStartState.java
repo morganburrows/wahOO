@@ -5,14 +5,7 @@ import java.util.Random;
 public class NoMarblesInStartState implements PlayerState{
 
     @Override
-    public int rollDice(){
-        Random random = new Random();
-        int roll = random.nextInt(6) + 1;
-        return roll;
+    public void takeTurn(Player player){
 
-    }
-
-    @Override
-    public void putInPlay(){
     }
 }

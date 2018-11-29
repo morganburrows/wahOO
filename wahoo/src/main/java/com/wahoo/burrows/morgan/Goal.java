@@ -1,12 +1,11 @@
 package com.wahoo.burrows.morgan;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
 
 public class Goal
 {
-	public Set<space> goalPool = new HashSet<>();
-	Player owner;
+	private ArrayList<marble> goalPool = new ArrayList<>();
+	private Player owner;
 
 	//set ownership of a pool
 	public void setOwner(Player owner){
@@ -18,33 +17,17 @@ public class Goal
 		return owner;
 	}
 
-	public void makePool(int playerID){
-		for(int i = 0; i < 4; i++){
-			goalPool.add(new space((playerID*1000)+i));
-		}
-	}
-
-	//populate the set of spaces with marbles.
-	//each marble is unique and occupies a space in the set.
-	public void populatePool(int playerID){
-		for(space space : goalPool){
-			space.setOccupant(new marble(owner));
-		}
-	}
-
-	public void addOccupant(){
-
+	public void addOccupant(marble marble){
+		goalPool.add(marble);
 	}
 
 
 	public int getNumOccupants(){
-		return 0;
+		return goalPool.size();
 	}
 
 	public Goal(Player owner){
 		setOwner(owner);
-		makePool(owner.playerID);
-		populatePool(owner.playerID);
 	}
 
 

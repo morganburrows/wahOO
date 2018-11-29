@@ -3,15 +3,13 @@ package com.wahoo.burrows.morgan;
 
 public class space extends game
 {
-	public int place;
+	public int location;
 	public marble occupant;
 
 	public space(int ID){
-		this.place = ID;
+		this.location = ID;
 	}
 
-
-	
 	public marble getOccupant() {
 		return(this.occupant);
 	}

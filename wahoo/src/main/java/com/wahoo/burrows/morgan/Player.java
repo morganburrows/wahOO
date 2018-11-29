@@ -1,6 +1,5 @@
 package com.wahoo.burrows.morgan;
 
-import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
@@ -19,7 +18,7 @@ import java.util.Set;
 	public int startSpace;
 	start spool;
 	Goal gpool;
-	Set<marble> marblesInPlay = new HashSet<>();
+	Play ppool;
 
 
 	//constructor for a player.
@@ -28,7 +27,8 @@ import java.util.Set;
 	public Player(int playerID){
 		this.spool = new start(this);
 		this.gpool = new Goal(this);
-		Set<marble> marblesInPlay = new HashSet<>();
+		this.ppool = new Play(this);
+
 	}
 
 	public void setStartSpace(int space){
@@ -70,9 +70,9 @@ import java.util.Set;
 	public void putInPlay(Player player, marble marble){
 		if(!marble.inPlay){
 			Board board = Board.getBoardInstance();
-			board.boardArray[player.getStartSpace()].setOccupant(marble);
+			board.boardArray.get(player.getStartSpace()).setOccupant(marble);
+			player.ppool.addMarble(marble);
 			marble.inPlay = true;
-
 		}
 	}
 
