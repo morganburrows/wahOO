@@ -1,7 +1,6 @@
 package com.wahoo.burrows.morgan;
 
 import java.util.Random;
-import java.util.Set;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,6 +16,7 @@ import java.util.Set;
 	public int playerID;
 	private int startSpace;
 	public int goalSpace = startSpace -2 ;
+	public int rolled;
 	start spool;
 	Goal gpool;
 	Play ppool;
@@ -64,25 +64,28 @@ import java.util.Set;
 	public int rollDice(){
 		Random random = new Random();
 		int roll = random.nextInt(6) + 1;
+		rolled = roll;
 		return roll;
 
 	}
 
 	public boolean putInPlay(Player player, marble marble){
 		if(!marble.inPlay){
-			Board board = Board.getBoardInstance();
-			board.boardArray.get(player.getStartSpace()).setOccupant(marble);
+			Board.getBoardInstance().boardArray.get(player.getStartSpace()).setOccupant(marble);
 			player.ppool.addMarble(marble);
 			marble.inPlay = true;
-			if(board.boardArray.get(player.startSpace).occupant != null){
-				if(board.boardArray.get(player.startSpace).occupant.owner == player){
+			if(Board.getBoardInstance().boardArray.get(player.startSpace).occupant != null){
+				if(Board.getBoardInstance().boardArray.get(player.startSpace).occupant.owner == player){
 					return false;
 				}else {
-					marble.setSpace(board.boardArray.get(player.startSpace));
+					marble.setSpace(Board.getBoardInstance().boardArray.get(player.startSpace));
+					marble.getSpace().location = player.startSpace;
 					return true;
 				}
 			}else {
-				marble.setSpace(board.boardArray.get(player.startSpace));
+				marble.setSpace(Board.getBoardInstance().boardArray.get(player.startSpace));
+				marble.getSpace().location = player.startSpace;
+				System.out.println("AAAAAAAAAAAA" + marble.getSpace() + marble.getSpace().location);
 				return true;
 			}
 		}
@@ -93,14 +96,13 @@ import java.util.Set;
 	//copy the occupying marble to the new space.
 	//remove the occupant from the old space.
 	public boolean moveMarble(marble marble, int distance) {
-		Board board = Board.getBoardInstance();
 		int newLocation = marble.getSpace().location + distance;
 		if(newLocation > 47){
 			newLocation = 0;
 		}else if(newLocation == goalSpace){
 			return false;
 		}
-		marble newSpaceOccupant = board.boardArray.get(newLocation).occupant;
+		marble newSpaceOccupant = Board.getBoardInstance().boardArray.get(newLocation).occupant;
 
 		if(newSpaceOccupant!= null){
 			if(newSpaceOccupant.owner == marble.owner){
@@ -110,11 +112,12 @@ import java.util.Set;
 			newSpaceOccupant.owner.spool.startPool
 					.add((newSpaceOccupant.owner.playerID*100)
 							+ newSpaceOccupant.owner.playerID, newSpaceOccupant);
-			board.boardArray.get(newLocation).occupant = marble;
+			Board.getBoardInstance().boardArray.get(newLocation).occupant = marble;
 			return true;
 		}
-		board.boardArray.get(newLocation).occupant = marble;
+		Board.getBoardInstance().boardArray.get(newLocation).occupant = marble;
 		return true;
+
 	}
 
 }

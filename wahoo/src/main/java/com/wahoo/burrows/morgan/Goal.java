@@ -19,6 +19,9 @@ public class Goal
 
 	public void addOccupant(marble marble){
 		goalPool.add(marble);
+		marble.inPlay = false;
+		marble.setSpace(null);
+		marble.owner.ppool.playPool.remove(marble);
 	}
 
 

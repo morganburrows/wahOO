@@ -22,13 +22,13 @@ public class game
 	PlayerState AllMarblesInStart = new AllMarblesInStartState();
 	PlayerState MarblesOnBoard = new MarblesOnBoardState();
 	PlayerState NoMarblesInStart = new NoMarblesInStartState();
-	PlayerState AllMarblesInGoal = new AllMarblesInGoalState();
 	public Set<Player> playerSet = new HashSet<>();
+
+	Player winner = null;
 
 
 	public game(){
 		setupPlayers();
-		startGame();
 	}
 
 	public void setupPlayers(){
@@ -60,10 +60,8 @@ public class game
 			context.setState(AllMarblesInStart);
 		} else if(player.spool.getNumOccupants() < 4){
 			context.setState(MarblesOnBoard);
-		} else if(player.spool.getNumOccupants() == 0 && player.gpool.getNumOccupants() < 4){
+		} else if(player.spool.getNumOccupants() == 0 && player.gpool.getNumOccupants() < 4) {
 			context.setState(NoMarblesInStart);
-		} else if(player.gpool.getNumOccupants() == 4){
-			context.setState(AllMarblesInGoal);
 		}
 	}
 
@@ -71,10 +69,24 @@ public class game
 	public void startGame() {
 		while(!winConditionMet){
 			for(Player player : playerSet){
+				System.out.println("it is player " + player.playerID + "'s turn");
+				System.out.println("rolled: "+ player.rolled);
+				System.out.println("player " + player.playerID + " marbles: ");
+				System.out.print("in start: " + player.spool.startPool.size());
+				System.out.print(" | in play: " + player.ppool.playPool.size());
+				System.out.print(" | in goal: " + player.gpool.getNumOccupants());
+				System.out.println("");
+
+
 				setPlayerTurnLogic(player);
 				context.takeTurn(player);
+				if(player.gpool.getNumOccupants() == 4){
+					winner = player;
+					winConditionMet = true;
+				}
 			}
 		}
+		System.out.println("the winner is " + winner);
 
 	}
 

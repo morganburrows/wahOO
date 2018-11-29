@@ -20,15 +20,20 @@ public class Play {
     }
 
     public void addMarble(marble marble){
-        playPool.add(marble);
+        playPool.add(0,marble);
     }
 
     public marble getLeader(ArrayList<marble> pool){
         marble leader = pool.get(0);
-        for(marble marble: pool){
-            if(marble.getSpace().location > leader.getSpace().location){
-                leader = marble;
+        System.out.println("marble in play's space: "+leader.getSpace());
+        try {
+            for(marble marble: pool){
+                if(marble.getSpace().location > leader.getSpace().location){
+                    leader = marble;
+                }
             }
+        } catch (NullPointerException e){
+            e.getCause();
         }
         return leader;
     }

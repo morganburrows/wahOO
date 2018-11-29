@@ -6,7 +6,17 @@ public class NoMarblesInStartState implements PlayerState{
     @Override
     public void takeTurn(Player player){
         int roll = player.rollDice();
-        marble marble = player.ppool.getBehind(player.ppool.playPool);
-        player.moveMarble(marble, roll);
+        if(roll%2 == 0){
+            marble marble = player.ppool.getBehind(player.ppool.playPool);
+            if(!player.moveMarble(marble, roll)){
+                player.gpool.addOccupant(marble);
+            }
+        }else{
+            marble marble = player.ppool.getLeader(player.ppool.playPool);
+            if(!player.moveMarble(marble, roll)){
+                player.gpool.addOccupant(marble);
+            }
+        }
+
     }
 }
