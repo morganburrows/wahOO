@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Play {
 
-    private ArrayList<marble> playPool = new ArrayList<>();
+    public ArrayList<marble> playPool = new ArrayList<>();
     Player owner;
 
     public void setOwner(Player owner){
@@ -21,6 +21,16 @@ public class Play {
 
     public void addMarble(marble marble){
         playPool.add(marble);
+    }
+
+    public marble getLeader(ArrayList<marble> pool){
+        marble leader = pool.get(0);
+        for(marble marble: pool){
+            if(pool.indexOf(marble) > pool.indexOf(leader)){
+                leader = marble;
+            }
+        }
+        return leader;
     }
 
 }

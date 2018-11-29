@@ -16,7 +16,7 @@ public class marble
 {
 
 
-	public space space;
+	private space space;
 	public int marbleID;
 	public Player owner;
 	public boolean inPlay;
@@ -28,15 +28,27 @@ public class marble
 	}
 
 
-	public int Color;
+	public String color;
 	
-	public void setColor(int color) {
-		this.Color = color;
+	public void setColor(String color) {
+		this.color = color;
 	}
 
-	public int getColor(marble parameter) {
-		return(this.Color);
+	public String getColor() {
+		return(this.color);
 	}
+
+	public space getSpace(){
+		return this.space;
+}
+	public void setSpace() {
+		for(space boardSpace : Board.getBoardInstance().boardArray){
+			if(boardSpace.occupant.marbleID == this.marbleID){
+				this.space = boardSpace;
+			}
+		}
+	}
+
 
 	public void setOwner(Player player){
 		this.owner = player;

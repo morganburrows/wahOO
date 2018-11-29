@@ -26,6 +26,10 @@ public class game
 	public Set<Player> playerSet = new HashSet<>();
 
 
+	public game(){
+		setupPlayers();
+		startGame();
+	}
 
 	public void setupPlayers(){
 
@@ -64,16 +68,11 @@ public class game
 	}
 
 
-
-	public game(){
-		setupPlayers();
-	}
-
-
 	public void startGame() {
 		while(!winConditionMet){
 			for(Player player : playerSet){
 				setPlayerTurnLogic(player);
+				context.takeTurn(player);
 			}
 		}
 

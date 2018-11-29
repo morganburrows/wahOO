@@ -24,11 +24,12 @@ import java.util.Set;
 	//constructor for a player.
 	//each player starts the game with a full pool of marbles.
 	//each player starts the game with an empty pool at the "end" of the track.
+	//each player starts the game with an empty pool of marbles that are in play
 	public Player(int playerID){
+		this.playerID = playerID;
 		this.spool = new start(this);
 		this.gpool = new Goal(this);
 		this.ppool = new Play(this);
-
 	}
 
 	public void setStartSpace(int space){
@@ -43,7 +44,6 @@ import java.util.Set;
 	//get the number of marbles a players goal.
 	//this function is used to check for the win condition.
 	public int getMarblesInGoal(){
-
 		return gpool.getNumOccupants();
 	}
 
@@ -73,7 +73,18 @@ import java.util.Set;
 			board.boardArray.get(player.getStartSpace()).setOccupant(marble);
 			player.ppool.addMarble(marble);
 			marble.inPlay = true;
+			marble.setSpace();
 		}
+	}
+
+	//Function to advance a marble along the board.
+	//copy the occupying marble to the new space.
+	//remove the occupant from the old space.
+	public void moveMarble(space currentSpace, int distance) {
+		Board.getBoardInstance().boardArray
+				.set(currentSpace.location + distance, currentSpace)
+				.occupant = currentSpace.getOccupant();
+		currentSpace.occupant = null;
 	}
 
 }
