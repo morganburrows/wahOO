@@ -41,12 +41,8 @@ public class marble
 	public space getSpace(){
 		return this.space;
 }
-	public void setSpace() {
-		for(space boardSpace : Board.getBoardInstance().boardArray){
-			if(boardSpace.occupant.marbleID == this.marbleID){
-				this.space = boardSpace;
-			}
-		}
+	public void setSpace(space space) {
+		this.space = space;
 	}
 
 

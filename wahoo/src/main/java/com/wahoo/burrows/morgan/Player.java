@@ -73,18 +73,25 @@ import java.util.Set;
 			board.boardArray.get(player.getStartSpace()).setOccupant(marble);
 			player.ppool.addMarble(marble);
 			marble.inPlay = true;
-			marble.setSpace();
+			marble.setSpace(board.boardArray.get(player.startSpace));
 		}
 	}
 
 	//Function to advance a marble along the board.
 	//copy the occupying marble to the new space.
 	//remove the occupant from the old space.
-	public void moveMarble(space currentSpace, int distance) {
-		Board.getBoardInstance().boardArray
-				.set(currentSpace.location + distance, currentSpace)
-				.occupant = currentSpace.getOccupant();
-		currentSpace.occupant = null;
+	public void moveMarble(marble marble, int distance) {
+		Board board = Board.getBoardInstance();
+		int newLocation = marble.getSpace().location + distance;
+		marble newSpaceOccupant = board.boardArray.get(newLocation).occupant;
+		
+		if(newSpaceOccupant!= null){
+			if(newSpaceOccupant.owner == marble.owner){
+				moveMarble(ppool.getBehind(ppool.playPool), distance);
+			}
+			board.boardArray.get(newLocation).occupant = marble;
+		}
+		board.boardArray.get(newLocation).occupant = marble;
 	}
 
 }
