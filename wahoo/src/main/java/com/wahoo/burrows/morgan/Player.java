@@ -13,9 +13,10 @@ import java.util.Set;
 {
 
 	
-	public String Name;
+	private String Name;
 	public int playerID;
-	public int startSpace;
+	private int startSpace;
+	public int goalSpace = startSpace -2 ;
 	start spool;
 	Goal gpool;
 	Play ppool;
@@ -91,18 +92,29 @@ import java.util.Set;
 	//Function to advance a marble along the board.
 	//copy the occupying marble to the new space.
 	//remove the occupant from the old space.
-	public void moveMarble(marble marble, int distance) {
+	public boolean moveMarble(marble marble, int distance) {
 		Board board = Board.getBoardInstance();
 		int newLocation = marble.getSpace().location + distance;
+		if(newLocation > 47){
+			newLocation = 0;
+		}else if(newLocation == goalSpace){
+			return false;
+		}
 		marble newSpaceOccupant = board.boardArray.get(newLocation).occupant;
 
 		if(newSpaceOccupant!= null){
 			if(newSpaceOccupant.owner == marble.owner){
 				moveMarble(ppool.getBehind(ppool.playPool), distance);
+				return true;
 			}
+			newSpaceOccupant.owner.spool.startPool
+					.add((newSpaceOccupant.owner.playerID*100)
+							+ newSpaceOccupant.owner.playerID, newSpaceOccupant);
 			board.boardArray.get(newLocation).occupant = marble;
+			return true;
 		}
 		board.boardArray.get(newLocation).occupant = marble;
+		return true;
 	}
 
 }

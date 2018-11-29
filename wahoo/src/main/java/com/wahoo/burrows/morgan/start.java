@@ -5,7 +5,7 @@ import java.util.*;
 
 public class start
 {
-	private ArrayList<marble> startPool = new ArrayList<>();
+	public ArrayList<marble> startPool = new ArrayList<>();
 	private Player owner;
 
 	//set ownership of a start pool. each player has a pool
@@ -22,7 +22,7 @@ public class start
 	//Each space is unique, and tied to the player via playerID
 	public void makePool(Player owner){
 		for(int i = 0; i < 4; i++){
-			startPool.add(i, new marble(owner,(owner.playerID*100)+1));
+			startPool.add(i, new marble(owner,(owner.playerID*100)+owner.playerID));
 		}
 	}
 
