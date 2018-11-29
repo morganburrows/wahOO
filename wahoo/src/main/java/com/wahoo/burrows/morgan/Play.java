@@ -26,11 +26,23 @@ public class Play {
     public marble getLeader(ArrayList<marble> pool){
         marble leader = pool.get(0);
         for(marble marble: pool){
-            if(pool.indexOf(marble) > pool.indexOf(leader)){
+            if(marble.getSpace().location > leader.getSpace().location){
                 leader = marble;
             }
         }
         return leader;
+    }
+
+    public marble getBehind(ArrayList<marble> pool){
+        marble leader = pool.get(0);
+        marble trailer = leader;
+        for(marble marble : pool){
+            if(marble.getSpace().location > leader.getSpace().location){
+                trailer = leader;
+                leader = marble;
+            }
+        }
+        return trailer;
     }
 
 }
